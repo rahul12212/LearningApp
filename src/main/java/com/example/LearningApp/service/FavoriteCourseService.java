@@ -7,6 +7,8 @@ import com.example.LearningApp.repository.FavoriteCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FavoriteCourseService {
     @Autowired
@@ -26,4 +28,11 @@ public class FavoriteCourseService {
     }
 
 
+    public List<FavoriteCourse> getAllFavoriteCourses(User user) {
+        return null;
+    }
+
+    public void removeFavoriteCourse(User user, Long id) {
+
+    }
 }

@@ -1,8 +1,8 @@
 package com.example.LearningApp.entity;
 
-import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +21,43 @@ public class Course {
     private String category;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
+    @JoinColumn(name = "author_id", nullable = false)
     private User author;
+
+    // Default constructor
+    public Course() {
+    }
+
+    // Getters and setters
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
 }

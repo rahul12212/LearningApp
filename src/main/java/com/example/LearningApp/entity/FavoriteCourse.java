@@ -1,5 +1,6 @@
 package com.example.LearningApp.entity;
 
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,4 +22,8 @@ public class FavoriteCourse {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public void setUserId(User user) {
+        this.user = user;
+    }
 }

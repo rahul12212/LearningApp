@@ -1,6 +1,5 @@
 package com.example.LearningApp.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,10 +15,10 @@ public class Enrollment {
     private Long enrollmentId;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

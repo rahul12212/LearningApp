@@ -27,4 +27,12 @@ public abstract class EnrollmentService {
 
 
     public abstract Enrollment enrollStudent(Enrollment enrollment);
+
+    public boolean enrollUser(Long userId) {
+        return false;
+    }
+
+    public boolean withdrawEnrollment(Long userId) {
+        return false;
+    }
 }
