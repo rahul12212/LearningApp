@@ -23,7 +23,7 @@ public class CourseServiceImpl extends CourseService {
     @Override
     public Course createCourse(User user, Course course) {
         UserService userService = null;
-        if (!userService.isAuthor(user)) {
+        if (!UserService.isAuthor(user)) {
             throw new UnauthorizedException("Only authors can create courses.");
         }
         course.setAuthor(user);

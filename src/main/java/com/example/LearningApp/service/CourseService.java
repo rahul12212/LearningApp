@@ -22,7 +22,7 @@ public class CourseService {
 
     public Course createCourse(User user, Course course) {
 
-        if (userService.isAuthor(user)) {
+        if (UserService.isAuthor(user)) {
             course.setAuthor(user);
             return courseRepository.save(course);
         } else {
