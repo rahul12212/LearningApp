@@ -12,12 +12,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public static User getCurrentUser() {
+        return null;
+    }
+
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
     public void createUser(User user) {
-
         if(user.getPassword() == null || user.getPassword().isEmpty()) {
             throw new IllegalArgumentException("Password cannot be null or empty");
         }
@@ -33,7 +36,8 @@ public class UserService {
     }
 
     public static boolean isAuthor(User user) {
-        return user.getRole().equals("AUTHOR");
+        // Assuming the user's role is stored in the 'role' field
+        return user != null && user.getRole().equals("AUTHOR");
     }
 
     public boolean isLearner(User user) {
@@ -45,10 +49,10 @@ public class UserService {
     }
 
     public void updateUser(Long id, User user) {
-
+        // Implementation to update user by id
     }
 
     public void deleteUser(Long id) {
-
+        // Implementation to delete user by id
     }
 }

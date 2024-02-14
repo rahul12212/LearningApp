@@ -4,6 +4,7 @@ import com.example.LearningApp.DTO.CourseDTO;
 import com.example.LearningApp.entity.Course;
 import com.example.LearningApp.entity.User;
 import com.example.LearningApp.service.CourseService;
+import com.example.LearningApp.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,13 +21,27 @@ public class CourseController {
     private CourseService courseService;
 
     @PostMapping
-    public ResponseEntity<Course> createCourse(@RequestBody CourseDTO courseDTO, @RequestAttribute("user") User user) {
-        // Convert CourseDTO to Course entity
+    public ResponseEntity createCourse(@RequestBody CourseDTO courseDTO) {
+
+
+        User user = UserService.getCurrentUser();
+
+
+        if (courseDTO == null) {
+            return ResponseEntity.badRequest().body("Course details are required");
+        }
+
+
         Course course = new Course();
         BeanUtils.copyProperties(courseDTO, course);
 
-        Course createdCourse = courseService.createCourse(user, course);
-        return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
+        try {
+            Course createdCourse = courseService.createCourse(user, course);
+            return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to create course: " + e.getMessage());
+        }
     }
 
     @GetMapping
@@ -47,7 +62,7 @@ public class CourseController {
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCourse(@PathVariable("id") Long id, @RequestBody CourseDTO courseDTO) {
-        // Convert CourseDTO to Course entity
+
         Course course = new Course();
         BeanUtils.copyProperties(courseDTO, course);
 

@@ -16,15 +16,12 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-    @Autowired
-    private UserService userService;
-
     public List<Course> findByCategory(String category) {
         return courseRepository.findByCategory(category);
     }
 
     public Course createCourse(User user, Course course) {
-        if (UserService.isAuthor(user)) {
+        if (isAuthor(user)) {
             course.setAuthor(user);
             return courseRepository.save(course);
         } else {
@@ -38,7 +35,7 @@ public class CourseService {
 
     public Course getCourseById(Long id) {
         Optional<Course> optionalCourse = courseRepository.findById(id);
-        return optionalCourse.orElse(null);
+        return optionalCourse.orElseThrow(() -> new IllegalArgumentException("Course not found with id: " + id));
     }
 
     public void updateCourse(Long id, Course updatedCourse) {
@@ -56,15 +53,19 @@ public class CourseService {
     }
 
     public void deleteCourse(Long id) {
-        Optional<Course> optionalCourse = courseRepository.findById(id);
-        if (optionalCourse.isPresent()) {
+        if (courseRepository.existsById(id)) {
             courseRepository.deleteById(id);
         } else {
             throw new IllegalArgumentException("Course not found with id: " + id);
         }
     }
 
-    public Course findById(Course courseId) {
+    // Check if the user is an author
+    private boolean isAuthor(User user) {
+        return user != null && user.getRole().equals("AUTHOR");
+    }
+
+    public Course findById(Course CourseId) {
         return null;
     }
 }
