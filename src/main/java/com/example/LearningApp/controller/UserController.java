@@ -20,10 +20,8 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<String> registerUser(@RequestBody UserDTO userDTO) {
-
         User user = new User();
         BeanUtils.copyProperties(userDTO, user);
-
         userService.createUser(user);
         return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
     }
@@ -46,10 +44,8 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUser(@PathVariable("id") Long id, @RequestBody UserDTO userDTO) {
-      //Entity
         User user = new User();
         BeanUtils.copyProperties(userDTO, user);
-
         userService.updateUser(id, user);
         return new ResponseEntity<>("User updated successfully", HttpStatus.OK);
     }
@@ -58,5 +54,11 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
+    }
+
+    @GetMapping("/role")
+    public ResponseEntity<List<User>> getUsersByRole(@RequestParam("role") String role) {
+        List<User> users = userService.getUsersByRole(role);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }

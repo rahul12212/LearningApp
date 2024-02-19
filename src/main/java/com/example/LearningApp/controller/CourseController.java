@@ -35,8 +35,11 @@ public class CourseController {
         Course course = new Course();
         BeanUtils.copyProperties(courseDTO, course);
 
+        System.out.println(course);
+
         try {
             Course createdCourse = courseService.createCourse(user, course);
+            System.out.println("reached");
             return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

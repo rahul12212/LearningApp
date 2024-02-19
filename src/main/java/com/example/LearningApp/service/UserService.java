@@ -55,4 +55,8 @@ public class UserService {
     public void deleteUser(Long id) {
         // Implementation to delete user by id
     }
+
+    public List<User> getUsersByRole(String role) {
+        return userRepository.findByRoleIgnoreCase(role);
+    }
 }

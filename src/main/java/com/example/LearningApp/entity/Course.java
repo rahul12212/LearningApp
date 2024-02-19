@@ -20,8 +20,11 @@ public class Course {
     @Column(nullable = false)
     private String category;
 
+    @Column(nullable = false)
+    private String password;
+
     @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
+    @JoinColumn(name = "author_id")
     private User author;
 
     // Default constructor
