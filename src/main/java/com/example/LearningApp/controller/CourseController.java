@@ -84,3 +84,5 @@ public class CourseController {
         return new ResponseEntity<>("Course deleted successfully", HttpStatus.OK);
     }
 }
+
+//Code formatted
