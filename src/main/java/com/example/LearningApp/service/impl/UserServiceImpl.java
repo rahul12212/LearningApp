@@ -1,8 +1,8 @@
-package com.example.LearningApp.service.impl;
+package com.example.learningapp.service.impl;
 
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.repository.UserRepository;
-import com.example.LearningApp.service.UserService;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.repository.UserRepository;
+import com.example.learningapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

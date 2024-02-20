@@ -1,8 +1,9 @@
-package com.example.LearningApp.controller;
+package com.example.learningapp.controller;
 
-import com.example.LearningApp.DTO.UserDTO;
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.service.UserService;
+import com.example.learningapp.dto.UserDTO;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -23,6 +25,7 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userDTO, user);
         userService.createUser(user);
+        log.info("User Registered");
         return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
     }
 
@@ -47,6 +50,7 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userDTO, user);
         userService.updateUser(id, user);
+        log.info("User Updated");
         return new ResponseEntity<>("User updated successfully", HttpStatus.OK);
     }
 

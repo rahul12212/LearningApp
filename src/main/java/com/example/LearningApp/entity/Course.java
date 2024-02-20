@@ -1,4 +1,4 @@
-package com.example.LearningApp.entity;
+package com.example.learningapp.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,11 +27,10 @@ public class Course {
     @JoinColumn(name = "author_id")
     private User author;
 
-    // Default constructor
     public Course() {
     }
 
-    // Getters and setters
+
     public Long getCourseId() {
         return courseId;
     }

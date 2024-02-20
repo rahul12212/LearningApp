@@ -1,9 +1,9 @@
-package com.example.LearningApp.service.impl;
+package com.example.learningapp.service.impl;
 
-import com.example.LearningApp.entity.FavoriteCourse;
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.repository.FavoriteCourseRepository;
-import com.example.LearningApp.service.FavoriteCourseService;
+import com.example.learningapp.entity.FavoriteCourse;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.repository.FavoriteCourseRepository;
+import com.example.learningapp.service.FavoriteCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,9 @@
-package com.example.LearningApp.service;
+package com.example.learningapp.service;
 
-import com.example.LearningApp.entity.Course;
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.repository.CourseRepository;
+import com.example.learningapp.entity.Course;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.repository.CourseRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class CourseService {
 
     @Autowired
@@ -22,6 +24,7 @@ public class CourseService {
     public Course createCourse(User user, Course course) {
 
         course.setAuthor(user);
+        log.info("Course created");
 
         return courseRepository.save(course);
     }
@@ -40,7 +43,7 @@ public class CourseService {
         Optional<Course> optionalCourse = courseRepository.findById(id);
         if (optionalCourse.isPresent()) {
             Course course = optionalCourse.get();
-            // Update course properties with the new values from updatedCourse
+
             course.setTitle(updatedCourse.getTitle());
             course.setCategory(updatedCourse.getCategory());
 

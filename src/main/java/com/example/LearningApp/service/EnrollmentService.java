@@ -1,9 +1,9 @@
-package com.example.LearningApp.service;
+package com.example.learningapp.service;
 
-import com.example.LearningApp.UnauthorizedException;
-import com.example.LearningApp.entity.Enrollment;
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.repository.EnrollmentRepository;
+import com.example.learningapp.UnauthorizedException;
+import com.example.learningapp.entity.Enrollment;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.repository.EnrollmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

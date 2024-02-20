@@ -1,6 +1,6 @@
-package com.example.LearningApp.DTO;
+package com.example.learningapp.dto;
 
-import com.example.LearningApp.entity.Course;
+import com.example.learningapp.entity.Course;
 import lombok.Data;
 
 @Data

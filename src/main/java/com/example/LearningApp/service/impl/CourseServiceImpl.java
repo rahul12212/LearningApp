@@ -1,11 +1,11 @@
-package com.example.LearningApp.service.impl;
+package com.example.learningapp.service.impl;
 
-import com.example.LearningApp.UnauthorizedException;
-import com.example.LearningApp.entity.Course;
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.repository.CourseRepository;
-import com.example.LearningApp.service.CourseService;
-import com.example.LearningApp.service.UserService;
+import com.example.learningapp.UnauthorizedException;
+import com.example.learningapp.entity.Course;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.repository.CourseRepository;
+import com.example.learningapp.service.CourseService;
+import com.example.learningapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

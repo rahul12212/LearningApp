@@ -1,7 +1,7 @@
-package com.example.LearningApp.service;
+package com.example.learningapp.service;
 
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.repository.UserRepository;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public static boolean isAuthor(User user) {
-        // Assuming the user's role is stored in the 'role' field
+
         return user != null && user.getRole().equals("AUTHOR");
     }
 
@@ -49,11 +49,11 @@ public class UserService {
     }
 
     public void updateUser(Long id, User user) {
-        // Implementation to update user by id
+
     }
 
     public void deleteUser(Long id) {
-        // Implementation to delete user by id
+
     }
 
     public List<User> getUsersByRole(String role) {

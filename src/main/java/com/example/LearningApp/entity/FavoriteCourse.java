@@ -1,4 +1,4 @@
-package com.example.LearningApp.entity;
+package com.example.learningapp.entity;
 
 import jakarta.persistence.Table;
 import lombok.Getter;

@@ -1,10 +1,11 @@
-package com.example.LearningApp.controller;
+package com.example.learningapp.controller;
 
-import com.example.LearningApp.DTO.CourseDTO;
-import com.example.LearningApp.entity.Course;
-import com.example.LearningApp.entity.User;
-import com.example.LearningApp.service.CourseService;
-import com.example.LearningApp.service.UserService;
+import com.example.learningapp.dto.CourseDTO;
+import com.example.learningapp.entity.Course;
+import com.example.learningapp.entity.User;
+import com.example.learningapp.service.CourseService;
+import com.example.learningapp.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/api/courses")
 public class CourseController {
 
@@ -39,7 +41,7 @@ public class CourseController {
 
         try {
             Course createdCourse = courseService.createCourse(user, course);
-            System.out.println("reached");
+            log.info("Course created");
             return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -57,6 +59,7 @@ public class CourseController {
     public ResponseEntity<Course> getCourseById(@PathVariable("id") Long id) {
         Course course = courseService.getCourseById(id);
         if (course != null) {
+            log.info("Course list displayed");
             return new ResponseEntity<>(course, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -70,12 +73,14 @@ public class CourseController {
         BeanUtils.copyProperties(courseDTO, course);
 
         courseService.updateCourse(id, course);
+        log.info("Course updated");
         return new ResponseEntity<>("Course updated successfully", HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCourse(@PathVariable("id") Long id) {
         courseService.deleteCourse(id);
+        log.info("Course deleted");
         return new ResponseEntity<>("Course deleted successfully", HttpStatus.OK);
     }
 }

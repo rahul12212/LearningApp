@@ -1,6 +1,6 @@
-package com.example.LearningApp.repository;
+package com.example.learningapp.repository;
 
-import com.example.LearningApp.entity.User;
+import com.example.learningapp.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

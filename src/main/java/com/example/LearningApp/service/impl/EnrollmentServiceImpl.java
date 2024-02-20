@@ -1,8 +1,8 @@
-package com.example.LearningApp.service.impl;
+package com.example.learningapp.service.impl;
 
-import com.example.LearningApp.entity.Enrollment;
-import com.example.LearningApp.repository.EnrollmentRepository;
-import com.example.LearningApp.service.EnrollmentService;
+import com.example.learningapp.entity.Enrollment;
+import com.example.learningapp.repository.EnrollmentRepository;
+import com.example.learningapp.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

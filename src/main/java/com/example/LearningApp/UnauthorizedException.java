@@ -1,4 +1,4 @@
-package com.example.LearningApp;
+package com.example.learningapp;
 
 
 public class UnauthorizedException extends RuntimeException {
